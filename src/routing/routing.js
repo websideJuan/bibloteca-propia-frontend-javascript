@@ -22,6 +22,14 @@ class Routing {
   }
 
   navigate({ path }) {
+
+    console.log(this.routes);
+    
+
+    console.log('----------------------------------');
+    
+    console.log(this.routes[path]);
+    
     if (!this.routes[path]) {
       this.renderContent(
         `<h1>404 Not Found</h1> <a href="#/home">Go to Home</a>`
