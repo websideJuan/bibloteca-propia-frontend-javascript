@@ -75,7 +75,7 @@ class Routing {
       throw new Error('App element not found');
     }
 
-    app.innerHTML = content; // Clear previous content
+    app.innerHTML = content; 
 
     this.attachiLinkHandlers();
   }
@@ -86,7 +86,7 @@ class Routing {
         event.preventDefault();
         const path = link.getAttribute('href').slice(1); // Remove the leading '#/'
         
-        location.hash = path; // Update the hash in the URL
+        window.location.hash = path; // Update the hash in the URL
       });
     });
   }
