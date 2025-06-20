@@ -47,4 +47,5 @@ function isAuthenticated() {
   ; // User is not authenticated
 }
 
-routing.navigate({ path: window.location.pathname || "/" });
+const path = location.hash.slice(1) || '/';
+routing.navigate(path);

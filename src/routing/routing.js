@@ -43,7 +43,7 @@ class Routing {
       this.currentRoute = path;
       document.getElementById('app').innerHTML = this.routes[path].component();
     } else {
-      document.getElementById('app').innerHTML = `<h1>404 Not Found</h1> <a href="./">Go to Home</a>`;
+      document.getElementById('app').innerHTML = `<h1>404 Not Found</h1> <a href="./home">Go to Home</a>`;
       console.error(`Route not found: ${path}`);
     }
   }
@@ -51,9 +51,9 @@ class Routing {
     return this.currentRoute;
   }
   init() {
-    window.addEventListener('popstate', () => {
-      this.navigate({path: window.location.pathname});
-    });
+    window.addEventListener('hashchange', () => this.handleHashChange());
+    window.addEventListener('load', () => this.handleHashChange());
+   
     document.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', (event) => {
         event.preventDefault();
@@ -62,6 +62,11 @@ class Routing {
         this.navigate({ path });
       });
     });
+  }
+
+  handleHashChange() {
+    const path = window.location.hash.slice(1) || '/';
+    this.navigate({ path });
   }
 }
 export default Routing;
