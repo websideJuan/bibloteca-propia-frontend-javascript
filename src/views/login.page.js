@@ -22,7 +22,7 @@ export function loginPage() {
       </form>
       <p class="error-message" id="error-message"></p>
       <p class="form-link">
-        Don't have an account? <a href="/register">Register here</a>
+        Don't have an account? <a href="#/register">Register here</a>
       </p>
     </div>
   `;

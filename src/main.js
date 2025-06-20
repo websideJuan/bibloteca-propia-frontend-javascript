@@ -9,7 +9,6 @@ const routing = new Routing();
 
 routing.addRoute({
   path: "/",
-  component: "",
   redirectTo: "/home",
   callback: () => isAuthenticated(),
 });
@@ -48,4 +47,4 @@ function isAuthenticated() {
 }
 
 const path = location.hash.slice(1) || '/';
-routing.navigate(path);
+routing.navigate({ path });

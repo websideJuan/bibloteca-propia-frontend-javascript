@@ -33,7 +33,7 @@ export function registerPage() {
       </form>
       <p class="error-message" id="error-message"></p>
       <p class="form-link">
-        Already have an account? <a href="/login">Login here</a>
+        Already have an account? <a href="#/login">Login here</a>
       </p>
     </div>
   `;
