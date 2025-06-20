@@ -43,7 +43,7 @@ class Routing {
       this.currentRoute = path;
       document.getElementById('app').innerHTML = this.routes[path].component();
     } else {
-      document.getElementById('app').innerHTML = `<h1>404 Not Found</h1> <a href="/">Go to Home</a>`;
+      document.getElementById('app').innerHTML = `<h1>404 Not Found</h1> <a href="./">Go to Home</a>`;
       console.error(`Route not found: ${path}`);
     }
   }
