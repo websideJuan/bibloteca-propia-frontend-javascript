@@ -29,6 +29,10 @@ routing.addRoute({
   component: registerPage,
 });
 
+const path = location.hash.slice(1) || '/';
+routing.navigate({ path });
+
+
 function isAuthenticated() {
   let isValid = false;
   const userActivated = localStorage.getItem("userActivated");
@@ -40,11 +44,7 @@ function isAuthenticated() {
   } else {
     isValid = false; // User is not authenticated
   }
-  console.log(isValid);
-  
+
   return isValid
   ; // User is not authenticated
 }
-
-const path = location.hash.slice(1) || '/';
-routing.navigate({ path });

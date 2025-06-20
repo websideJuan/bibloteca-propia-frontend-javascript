@@ -4,12 +4,7 @@ import { db } from "../DB/db.js";
 import Route from "../routing/routing.js";
 
 export function registerPage() {
-  window.addEventListener("DOMContentLoaded", () => {
 
-  handelSubmit();
-  });
-
-  
   return `
     <div>
       <h1>Register Page</h1>

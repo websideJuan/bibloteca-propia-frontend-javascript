@@ -18,45 +18,38 @@ class Routing {
       throw new Error("RedirectTo must be a string");
     }
 
-    this.routes[path] = { component, callback, redirectTo };
+    this.routes[path] = {
+      component,
+      callback,
+      redirectTo,
+    };
   }
 
   navigate({ path }) {
 
-    console.log(this.routes);
-    
+    const route = this.routes[path];
 
-    console.log('----------------------------------');
-    
-    console.log(this.routes[path]);
-    
-    if (!this.routes[path]) {
+    if (!route) {
       this.renderContent(
         `<h1>404 Not Found</h1> <a href="#/home">Go to Home</a>`
       );
-      console.error(`Route not found: ${path}`);
+
       return;
     }
 
-    if (this.routes[path]?.callback) {
-      const isAuthenticated = this.routes[path].callback();
-
-      if (isAuthenticated === false) {
-        this.navigate({ path: "/login" });
-
-        return;
-      }
+    if (route.callback && route.callback() === false) {
+      this.navigate({ path: "/login" });
+      return;
     }
 
-    if (this.routes[path]?.redirectTo) {
-      this.navigate({ path: this.routes[path]?.redirectTo });
+    if (route.redirectTo) {
+      this.navigate({ path: route.redirectTo });
       return;
     }
 
     if (this.routes[path]) {
-      const content = this.routes[path]?.component
-        ? this.routes[path].component()
-        : "";
+      location.hash = path; // Update the hash in the URL
+      const content = this.routes[path].component?.();
       this.renderContent(content);
 
       if (typeof this.routes[path].component.init === "function") {
@@ -73,9 +66,7 @@ class Routing {
   }
 
   handleHashChange() {
-    const path = location.hash.slice(1) || "/";
-    console.log(path);
-
+    const path = location.hash.slice(1).replace(/\/$/, '') || "/";
     this.navigate({ path });
   }
 
