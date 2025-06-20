@@ -42,7 +42,7 @@ export function registerPage() {
 }
 
 
-function handelSubmit() {
+registerPage.init = function handelSubmit() {
   const errorMessage = document.getElementById("error-message");
   const inputs = document.querySelectorAll(".form-group input");
   const form = document.getElementById("register-form");
@@ -91,7 +91,7 @@ function handelSubmit() {
       }
 
       db.addUser(userCreated);
-      window.location.href = "/login";
+     window.location.hash = "#/login";
       
     } catch (error) {
       errorMessage.innerHTML = `Error processing form: ${error.message}`;

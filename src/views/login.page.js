@@ -2,7 +2,6 @@ import {FormUtils} from "../utils/form.utils.js";
 import { db } from "../DB/db.js";
 
 export function loginPage() {
-  window.addEventListener("DOMContentLoaded", () => handelSubmit());
   return `
     <div class="login-container">
       <h1>Login Page</h1>
@@ -28,7 +27,7 @@ export function loginPage() {
   `;
 }
 
-function handelSubmit() {
+loginPage.init = function handelSubmit() {
   const errorMessage = document.getElementById("error-message");
   const username = document.getElementById("username");
   const password = document.getElementById("password");
@@ -76,7 +75,7 @@ function handelSubmit() {
       localStorage.setItem("userActivated", JSON.stringify({ username: user.username }));
 
       // If login is successful, redirect to the home page
-      window.location.href = "/";
+      window.location.hash = "#/home";
       
       // Optionally, you can clear the form
       form.reset();

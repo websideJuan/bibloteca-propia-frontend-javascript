@@ -45,8 +45,14 @@ class Routing {
       return;
     }
 
-    const content = this.routes[path]?.component ? this.routes[path].component() : '' 
-    this.renderContent(content);
+    if (this.routes[path]) {
+      const content = this.routes[path]?.component ? this.routes[path].component() : '' 
+      this.renderContent(content);
+      
+      if (typeof this.routes[path].component.init === 'function') {
+        this.routes[path].component.init();
+      }
+    }
   }
   getCurrentRoute() {
     return this.currentRoute;
