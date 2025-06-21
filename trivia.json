@@ -1,0 +1,216 @@
+{
+  "materias": {
+    "matematicas": {
+      "nombre": "Matemáticas",
+      "facil": [
+        {
+          "pregunta": "¿Cuánto es 2 + 2?",
+          "opciones": ["3", "4", "5", "6"],
+          "respuesta_correcta": "4"
+        },
+        {
+          "pregunta": "¿Cuál es el doble de 5?",
+          "opciones": ["10", "15", "5", "20"],
+          "respuesta_correcta": "10"
+        }
+      ],
+      "media": [
+        {
+          "pregunta": "¿Cuál es la raíz cuadrada de 49?",
+          "opciones": ["7", "6", "9", "8"],
+          "respuesta_correcta": "7"
+        }
+      ],
+      "dificil": [
+        {
+          "pregunta": "¿Cuál es el resultado de 3² + 4²?",
+          "opciones": ["25", "12", "16", "7"],
+          "respuesta_correcta": "25"
+        }
+      ]
+    },
+    "ingles": {
+      "nombre": "Inglés",
+      "facil": [
+        {
+          "pregunta": "What is the plural of 'mouse'?",
+          "opciones": ["mouses", "mices", "mice", "mouse"],
+          "respuesta_correcta": "mice"
+        }
+      ],
+      "media": [
+        {
+          "pregunta": "What is the past tense of 'go'?",
+          "opciones": ["went", "gone", "going", "goes"],
+          "respuesta_correcta": "went"
+        },
+        {
+          "pregunta": "What is the synonym of 'happy'?",
+          "opciones": ["sad", "joyful", "angry", "tired"],
+          "respuesta_correcta": "joyful"
+        }
+      ],
+      "dificil": [
+        {
+          "pregunta": "What is the meaning of 'serendipity'?",
+          "opciones": ["luck", "misfortune", "disaster", "failure"],
+          "respuesta_correcta": "luck"
+        },
+        {
+          "pregunta": "What is the antonym of 'difficult'?",
+          "opciones": ["easy", "hard", "complex", "challenging"],
+          "respuesta_correcta": "easy"
+        },
+        {
+          "pregunta": "What is the past participle of 'write'?",
+          "opciones": ["wrote", "written", "writing", "writes"],
+          "respuesta_correcta": "written"
+        },
+        {
+          "pregunta": "What is the plural of 'child'?",
+          "opciones": ["children", "childs", "childes", "childrens"],
+          "respuesta_correcta": "children"
+        }
+
+      ]
+    },
+    "lenguaje": {
+      "nombre": "Lenguaje",
+      "facil": [
+        {
+          "pregunta": "¿Cuál es el sinónimo de 'rápido'?",
+          "opciones": ["lento", "veloz", "tardío", "pausado"],
+          "respuesta_correcta": "veloz"
+        },
+        {
+          "pregunta": "¿Qué es un sustantivo?",
+          "opciones": ["una acción", "un adjetivo", "un nombre", "un verbo"],
+          "respuesta_correcta": "un nombre"
+        },
+        {
+          "pregunta": "¿Cuál es el antónimo de 'feliz'?",
+          "opciones": ["triste", "alegre", "contento", "satisfecho"],
+          "respuesta_correcta": "triste"
+        },
+        {
+          "pregunta": "¿Qué es un adjetivo?",
+          "opciones": ["una acción", "un nombre", "una cualidad", "un verbo"],
+          "respuesta_correcta": "una cualidad"
+        }
+      ],
+      "media": [
+        {
+          "pregunta": "¿Cuál es el sinónimo de 'inteligente'?",
+          "opciones": ["bruto", "listo", "tonto", "ignorante"],
+          "respuesta_correcta": "listo"
+        },
+        {
+          "pregunta": "¿Qué es un verbo?",
+          "opciones": ["una acción", "un adjetivo", "un nombre", "un pronombre"],
+          "respuesta_correcta": "una acción"
+        },
+        {
+          "pregunta": "¿Cuál es el antónimo de 'grande'?",
+          "opciones": ["pequeño", "enorme", "gigante", "colosal"],
+          "respuesta_correcta": "pequeño"
+        },
+        {
+          "pregunta": "¿Qué es un adverbio?",
+          "opciones": ["una acción", "un nombre", "una cualidad", "una circunstancia"],
+          "respuesta_correcta": "una circunstancia"
+        }
+      ],
+      "dificil": [
+        {
+          "pregunta": "¿Cuál es el sinónimo de 'efímero'?",
+          "opciones": ["perdurable", "transitorio", "eterno", "infinito"],
+          "respuesta_correcta": "transitorio"
+        },
+        {
+          "pregunta": "¿Qué es una metáfora?",
+          "opciones": ["una comparación", "una exageración", "una descripción literal", "un adjetivo"],
+          "respuesta_correcta": "una comparación"
+        },
+        {
+          "pregunta": "¿Cuál es el antónimo de 'sutil'?",
+          "opciones": ["obvio", "delicado", "fino", "imperceptible"],
+          "respuesta_correcta": "obvio"
+        },
+        {
+          "pregunta": "¿Qué es una onomatopeya?",
+          "opciones": ["un sonido", "una acción", "un adjetivo", "un sustantivo"],
+          "respuesta_correcta": "un sonido"
+        }
+      ]
+    },
+    "historia": {
+      "nombre": "Historia",
+      "facil": [
+        {
+          "pregunta": "¿Quién fue Cristóbal Colón?",
+          "opciones": ["Un explorador", "Un científico", "Un rey", "Un escritor"],
+          "respuesta_correcta": "Un explorador"
+        },
+        {
+          "pregunta": "¿En qué año comenzó la Primera Guerra Mundial?",
+          "opciones": ["1914", "1918", "1939", "1945"],
+          "respuesta_correcta": "1914"
+        },
+        {
+          "pregunta": "¿Quién fue el primer presidente de los Estados Unidos?",
+          "opciones": ["George Washington", "Abraham Lincoln", "Thomas Jefferson", "John Adams"],
+          "respuesta_correcta": "George Washington"
+        },
+        {
+          "pregunta": "¿Qué civilización construyó las pirámides de Egipto?",
+          "opciones": ["Los mayas", "Los aztecas", "Los egipcios", "Los romanos"],
+          "respuesta_correcta": "Los egipcios"
+        }
+      ],
+      "media": [
+        {
+          "pregunta": "¿Quién fue Napoleón Bonaparte?",
+          "opciones": ["Un emperador francés", "Un científico", "Un escritor", "Un explorador"],
+          "respuesta_correcta": "Un emperador francés"
+        },
+        {
+          "pregunta": "¿En qué año cayó el Muro de Berlín?",
+          "opciones": ["1989", "1991", "1985", "1993"],
+          "respuesta_correcta": "1989"
+        },
+        {
+          "pregunta": "¿Qué civilización construyó Machu Picchu?",
+          "opciones": ["Los mayas", "Los aztecas", "Los incas", "Los romanos"],
+          "respuesta_correcta": "Los incas"
+        },
+        {
+          "pregunta": "¿Quién fue Cleopatra?",
+          "opciones": ["Una reina egipcia", "Una emperatriz romana", "Una guerrera vikinga", "Una filósofa griega"],
+          "respuesta_correcta": "Una reina egipcia"
+        }
+      ],
+      "dificil": [
+        {
+          "pregunta": "¿Quién fue el líder de la Revolución Rusa de 1917?",
+          "opciones": ["Vladimir Lenin", "Joseph Stalin", "Leon Trotsky", "Mikhail Gorbachev"],
+          "respuesta_correcta": "Vladimir Lenin"
+        },
+        {
+          "pregunta": "¿En qué año se firmó la Declaración de Independencia de los Estados Unidos?",
+          "opciones": ["1776", "1783", "1791", "1801"],
+          "respuesta_correcta": "1776"
+        },
+        {
+          "pregunta": "¿Qué civilización construyó el Coliseo en Roma?",
+          "opciones": ["Los griegos", "Los etruscos", "Los romanos", "Los fenicios"],
+          "respuesta_correcta": "Los romanos"
+        },
+        {
+          "pregunta": "¿Quién fue el primer emperador de China?",
+          "opciones": ["Qin Shi Huang", "Sun Yat-sen", "Confucio", "Mao Zedong"],
+          "respuesta_correcta": "Qin Shi Huang"
+        }
+      ]
+    }
+  }
+}
