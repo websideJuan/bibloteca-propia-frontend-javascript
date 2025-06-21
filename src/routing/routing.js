@@ -9,7 +9,7 @@ class Routing {
       throw new Error('Path must be a string starting with "/"');
     }
     if (component && typeof component !== "function") {
-      throw new Error("Component must be a string");
+      throw new Error("Component must be a function");
     }
     if (callback && typeof callback !== "function") {
       throw new Error("Callback must be a function");
@@ -25,49 +25,57 @@ class Routing {
     };
   }
 
-  navigate({ path }) {
+  async navigate({ path }) {
+    const cleanedPath = path.replace(/\/$/, "") || "/";
+    const route = this.routes[cleanedPath];
+        this.currentRoute = cleanedPath; // Update the current route
 
-    const route = this.routes[path];
 
     if (!route) {
       this.renderContent(
-        `<h1>404 Not Found</h1> <a href="#/home">Go to Home</a>`
+        '<h1>404 - Not Found</h1> <p>The page you are looking for does not exist.</p> <a href="#/home">Go to Home</a>'
       );
-
       return;
     }
 
-    if (route.callback && route.callback() === false) {
+    if ((await route?.callback) && (await route?.callback?.()) === false) {
       this.navigate({ path: "/login" });
       return;
     }
 
-    if (route.redirectTo) {
+    if (route?.redirectTo) {
+      console.log(`Redirecting to: ${route.redirectTo}`);
+
       this.navigate({ path: route.redirectTo });
       return;
     }
 
-    if (this.routes[path]) {
-      location.hash = path; // Update the hash in the URL
-      const content = this.routes[path].component?.();
-      this.renderContent(content);
+    setTimeout(() => {
+    try {
+      if (route && typeof route.component === "function") {
+        const content = route.component();
 
-      if (typeof this.routes[path].component.init === "function") {
-        this.routes[path].component.init();
+        this.renderContent(content);
+
+        location.hash = cleanedPath; // Update the URL hash
+
       }
+    } catch (error) {
+      console.error(error.message);
     }
-  }
-  getCurrentRoute() {
-    return this.currentRoute;
-  }
-  init() {
-    window.addEventListener("hashchange", () => this.handleHashChange());
-    window.addEventListener("load", () => this.handleHashChange());
+    }, 0);
   }
 
-  handleHashChange() {
-    const path = location.hash.slice(1).replace(/\/$/, '') || "/";
-    this.navigate({ path });
+  init() {
+    window.addEventListener("load", () => {
+      const path = location.hash.slice(1) || "/";
+      this.navigate({ path });
+    });
+
+    window.addEventListener("hashchange", () => {
+      const path = location.hash.slice(1);
+      this.navigate({ path });
+    });
   }
 
   renderContent(content) {
@@ -76,16 +84,21 @@ class Routing {
       throw new Error("App element not found");
     }
 
-    app.innerHTML = content;
+    // console.log( this.routes[this.currentRoute].component.init());
+    
+    app.innerHTML = content; // Limpiar el contenido actual
 
-    this.attachiLinkHandlers();
+    if (typeof this.routes[this.currentRoute]?.component.init === "function") {
+      
+      this.routes[this.currentRoute].component?.init(); // Llamar al componente si existe
+    }
   }
 
   attachiLinkHandlers() {
     document.querySelectorAll('a[href^="#/"]').forEach((link) => {
       link.addEventListener("click", (event) => {
         event.preventDefault();
-        const path = link.getAttribute("href").slice(1); // Remove the leading '#/'
+        const path = link.getAttribute("href").slice(1); // Remove the leading '#'
 
         location.hash = path; // Update the hash in the URL
       });

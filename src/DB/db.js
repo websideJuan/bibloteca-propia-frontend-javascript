@@ -4,17 +4,24 @@ class DB {
   }
 
   addUser(user) {
-    if (!user || !user.username || !user.password) {
+    if (!user || !user.username || !user.password, !user.email) {
       throw new Error('Invalid user data');
     }
 
-    const db = this.getAllUsers();
-    if (db) {
-      this.users = db
-    } 
-
-    this.users.push(user);
-    localStorage.setItem('users', JSON.stringify(this.users));
+    try {
+      
+      const db = this.getAllUsers();
+      if (db) {
+        this.users = db
+      } 
+  
+      this.users.push(user);
+      localStorage.setItem('users', JSON.stringify(this.users));
+    } catch (error) {
+      this.errors = [];
+      this.errors.push(error.message);
+      console.error('Error adding user:', error);
+    }
 
     
   }
@@ -24,7 +31,7 @@ class DB {
     if (!db) {
       return null;
     }
-    
+
     return db.find(user => user.username === username);
   }
 

@@ -1,18 +1,23 @@
 import {FormUtils} from "../utils/form.utils.js";
+import {PopupUtils} from "../utils/popup.utils.js";
 import { db } from "../DB/db.js";
 
 export function loginPage() {
+
   return `
-    <div class="login-container">
-      <h1>Login Page</h1>
+    <div class="container">
+      <h1>
+        Iniciar sesión
+
+      </h1>
       <form id="login-form">
         <div class="form-group">
-          <input type="text" id="username" name="username" placeholder=" "  />
+          <input type="text" id="username" name="username" placeholder=" " required />
           <label for="username">Username:</label>
           <span class="error-message" id="username-error"></span>
         </div>
         <div class="form-group">
-          <input type="password" id="password" name="password" placeholder=" "  />
+          <input type="password" id="password" name="password" placeholder=" " required />
           <label for="password">Password:</label>
           <span class="error-message" id="password-error"></span>
 
@@ -74,12 +79,18 @@ loginPage.init = function handelSubmit() {
       // If the user is found and the password matches, store the user data in localStorage
       localStorage.setItem("userActivated", JSON.stringify({ username: user.username }));
 
-      // If login is successful, redirect to the home page
-      window.location.hash = "#/home";
       
-      // Optionally, you can clear the form
-      form.reset();
       
+      PopupUtils.popup("Login successful!", "success", 1000);
+      
+      setTimeout(() => {
+        // If login is successful, redirect to the home page
+        location.hash = "/home";
+        
+        // Optionally, you can clear the form
+        form.reset();
+        
+      },6000);
     } catch (error) {
   
       errorMessage.innerHTML = error.message;

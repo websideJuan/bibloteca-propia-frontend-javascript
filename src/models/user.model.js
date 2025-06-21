@@ -1,19 +1,19 @@
 export class User {
 
-  errors = [];
+  static errors = [];
 
   static #validateUserData({ username, password, email }) {
     if (typeof username !== 'string' || username.trim() === '') {
-      errors.push('Username must be a non-empty string');
-      throw new Error('Username must be a non-empty string');
+      this.errors.push('Username must be a non-empty string');
+      return false;
     }
     if (typeof password !== 'string' || password.length < 6) {
-      errors.push('Password must be a string with at least 6 characters');
-      throw new Error('Password must be a string with at least 6 characters');
+      this.errors.push('Password must be a string with at least 6 characters');
+      return false;
     }
     if (email && (typeof email !== 'string' || !email.includes('@'))) {
-      errors.push('Email must be a valid email address');
-      throw new Error('Email must be a valid email address');
+      this.errors.push('Email must be a valid email address');
+      return false;
     }
     return true;
   }

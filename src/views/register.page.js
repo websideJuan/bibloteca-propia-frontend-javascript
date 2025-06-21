@@ -6,8 +6,8 @@ import Route from "../routing/routing.js";
 export function registerPage() {
 
   return `
-    <div>
-      <h1>Register Page</h1>
+    <div class="container">
+      <h1>Registrate</h1>
       <form id="register-form" class="register-form" >
         <div class="form-group">
           <input type="text" id="username" name="username" placeholder=" " required />
@@ -31,6 +31,21 @@ export function registerPage() {
         Already have an account? <a href="#/login">Login here</a>
       </p>
     </div>
+
+    <div class="container">
+      <h2>Terms and Conditions</h2>
+      <p>
+        By registering, you agree to our <a href="#/terms">Terms and Conditions</a> and <a href="#/privacy">Privacy Policy</a>.
+      </p>
+      <p>
+        Please read our <a href="#/terms">Terms of Service</a> and <a href="#/privacy">Privacy Policy</a> carefully before registering.
+      </p>
+      <p>
+        If you have any questions, please contact us at <a href="mailto:example@gmail.com">
+      </p>
+      </div>
+      
+
   `;
 
   
@@ -86,7 +101,8 @@ registerPage.init = function handelSubmit() {
       }
 
       db.addUser(userCreated);
-     window.location.hash = "#/login";
+      
+      location.hash = "/login"; 
       
     } catch (error) {
       errorMessage.innerHTML = `Error processing form: ${error.message}`;

@@ -1,6 +1,7 @@
 export class FormUtils {
   static stateOfValidation = {
-    isValid: false
+    isValid: false,
+    stateBtn: false,
   };
 
   static handleFormSubmit(form, callback) {
@@ -8,30 +9,35 @@ export class FormUtils {
       event.preventDefault();
       const formData = new FormData(event.target);
       const data = Object.fromEntries(formData.entries());
-
       
       form.querySelectorAll(".error-message").forEach((msg) => {
-
-
-        if (!msg.textContent === "" || data[msg.id.replace("-error", "")].length !== 0) {
-          
-          return 
+        if (
+          !msg.textContent === "" ||
+          data[msg.id.replace("-error", "")].length !== 0
+        ) {
+          return;
         }
-
-        console.log(msg.textContent === "");
-
         
-        msg.textContent = `this ${ msg.id.replace("-error", "") } is required`;
+        console.log(msg.textContent === "");
+        
+        msg.textContent = `this ${msg.id.replace("-error", "")} is required`;
       });
       if (!this.stateOfValidation.isValid) {
-       return  
+        return;
       }
-
+      
+      this.stateBtn = true; 
       try {
+        if (this.stateBtn) {
+          form.querySelector("button[type='submit']").disabled = true; // Disable button to prevent multiple submissions
+          form.querySelector("button[type='submit']").innerHTML = '<p class="spinner"></p>' // Change button text to indicate submission
+        }
         callback(data);
       } catch (error) {
         throw new Error(`Error processing form: ${error}`);
         // Handle error, e.g., show error message to user
+      } finally {
+        this.stateBtn = false; // Reset state after submission
       }
     });
   }
@@ -62,6 +68,4 @@ export class FormUtils {
       console.error(`Form with ID ${formId} not found.`);
     }
   }
-
-  
 }
