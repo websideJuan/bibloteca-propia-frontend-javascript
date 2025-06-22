@@ -2,7 +2,7 @@
   "materias": {
     "matematicas": {
       "nombre": "Matemáticas",
-      "imagen": "/bibloteca-propia-frontend-javascript/src/assets/mathematics.webp",
+      "imagen": "./assets/mathematics.webp",
       "facil": [
         {
           "pregunta": "¿Cuánto es 2 + 2?",
@@ -32,7 +32,7 @@
     },
     "ingles": {
       "nombre": "Inglés",
-      "imagen": "/bibloteca-propia-frontend-javascript/src/assets/ingles.jpg",
+      "imagen": "./assets/ingles.jpg",
       "facil": [
         {
           "pregunta": "What is the plural of 'mouse'?",
@@ -78,7 +78,7 @@
     },
     "lenguaje": {
       "nombre": "Lenguaje",
-      "imagen": "/bibloteca-propia-frontend-javascript/src/assets/Lenguaje.jpg",
+      "imagen": "./assets/Lenguaje.jpg",
       "facil": [
         {
           "pregunta": "¿Cuál es el sinónimo de 'rápido'?",
@@ -148,7 +148,7 @@
     },
     "historia": {
       "nombre": "Historia",
-      "imagen": "/bibloteca-propia-frontend-javascript/src/assets/historia.jpg",
+      "imagen": "./assets/historia.jpg",
       "facil": [
         {
           "pregunta": "¿Quién fue Cristóbal Colón?",
