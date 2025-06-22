@@ -78,7 +78,7 @@
     },
     "lenguaje": {
       "nombre": "Lenguaje",
-      "imagen": "/Lenguaje.jpg",
+      "imagen": "./Lenguaje.jpg",
       "facil": [
         {
           "pregunta": "¿Cuál es el sinónimo de 'rápido'?",
@@ -148,7 +148,7 @@
     },
     "historia": {
       "nombre": "Historia",
-      "imagen": "/historia.jpg",
+      "imagen": "./historia.jpg",
       "facil": [
         {
           "pregunta": "¿Quién fue Cristóbal Colón?",
