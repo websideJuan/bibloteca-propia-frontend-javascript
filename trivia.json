@@ -1,6 +1,6 @@
 {
   "materias": {
-    "matematicas": {
+    "Matemáticas": {
       "nombre": "Matemáticas",
       "imagen": "./mathematics.webp",
       "bg": "info",
@@ -31,7 +31,7 @@
         }
       ]
     },
-    "ingles": {
+    "Inglés": {
       "nombre": "Inglés",
       "imagen": "./ingles.jpg",
       "bg": "warning",
@@ -78,7 +78,7 @@
 
       ]
     },
-    "lenguaje": {
+    "Lenguaje": {
       "nombre": "Lenguaje",
       "imagen": "./Lenguaje.jpg",
       "bg": "danger",
@@ -149,7 +149,7 @@
         }
       ]
     },
-    "historia": {
+    "Historia": {
       "nombre": "Historia",
       "imagen": "./historia.jpg",
       "bg": "success",
