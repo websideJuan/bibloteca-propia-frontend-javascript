@@ -1,3 +1,4 @@
+
 export class User {
 
   static errors = [];
@@ -26,10 +27,9 @@ export class User {
       }
       // Here you would typically save the user to a database
       const userCreated = {
-        id: Math.random(
-          1, 1000000
-          
-        ), // Simulating an ID for the user
+        id: window.crypto.randomUUID(), // Simulating an ID for the user
+        lives: 3, // Default lives for a new user
+        score: 0, // Default score for a new user
         username,
         password, // In a real application, you should hash the password before storing it
         email

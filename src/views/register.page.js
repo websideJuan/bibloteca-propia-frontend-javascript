@@ -6,44 +6,49 @@ import Route from "../routing/routing.js";
 export function registerPage() {
 
   return `
-    <div class="container">
-      <h1>Registrate</h1>
-      <form id="register-form" class="register-form" >
-        <div class="form-group">
-          <input type="text" id="username" name="username" placeholder=" " required />
-          <label for="username">Username:</label>
-          <span class="error-message" id="username-error"></span>
+    <main>
+        <h4 style="font-size:34px; text-align: center; margin: 30px 0;">
+           Registrate! 📋
+        </h4>
+        <div class="glass-effect" style="height: auto; padding: 50px 25px;">
+          <form id="register-form" class="form-register" >
+            <div class="form-group">
+              <input type="text" id="username" name="username" placeholder=" " required />
+              <label for="username">Username:</label>
+              <span class="error-message" id="username-error"></span>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" name="email" placeholder=" " required />
+              <label for="email">Email:</label>
+              <span class="error-message" id="email-error"></span>
+            </div>
+            <div class="form-group">
+              <input type="password" id="password" name="password" placeholder=" " required />
+              <label for="password">Password:</label>
+              <span class="error-message" id="password-error"></span>
+            </div>
+            <button type="submit" class="btn-register">Register</button>
+          </form>
+          <p class="error-message" id="error-message"></p>
+          <p class="form-link">
+            Already have an account? <a href="#/login">Login here</a>
+          </p>
         </div>
-        <div class="form-group">
-          <input type="email" id="email" name="email" placeholder=" " required />
-          <label for="email">Email:</label>
-          <span class="error-message" id="email-error"></span>
-        </div>
-        <div class="form-group">
-          <input type="password" id="password" name="password" placeholder=" " required />
-          <label for="password">Password:</label>
-          <span class="error-message" id="password-error"></span>
-        </div>
-        <button type="submit" class="btn-register">Register</button>
-      </form>
-      <p class="error-message" id="error-message"></p>
-      <p class="form-link">
-        Already have an account? <a href="#/login">Login here</a>
-      </p>
-    </div>
 
-    <div class="container">
-      <h2>Terms and Conditions</h2>
-      <p>
-        By registering, you agree to our <a href="#/terms">Terms and Conditions</a> and <a href="#/privacy">Privacy Policy</a>.
-      </p>
-      <p>
-        Please read our <a href="#/terms">Terms of Service</a> and <a href="#/privacy">Privacy Policy</a> carefully before registering.
-      </p>
-      <p>
-        If you have any questions, please contact us at <a href="mailto:example@gmail.com">
-      </p>
+        <div class="container">
+          <h2>Terms and Conditions</h2>
+          <p>
+            By registering, you agree to our <a href="#/terms">Terms and Conditions</a> and <a href="#/privacy">Privacy Policy</a>.
+          </p>
+          <p>
+            Please read our <a href="#/terms">Terms of Service</a> and <a href="#/privacy">Privacy Policy</a> carefully before registering.
+          </p>
+          <p>
+            If you have any questions, please contact us at <a href="mailto:example@gmail.com">
+          </p>
+        </div>
       </div>
+    </main>
       
 
   `;

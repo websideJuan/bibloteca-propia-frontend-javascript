@@ -5,30 +5,31 @@ import { db } from "../DB/db.js";
 export function loginPage() {
 
   return `
-    <div class="container">
-      <h1>
-        Iniciar sesión
+    <main>
+      <h4 style="font-size:34px; text-align: center; margin: 30px 0;">
+        Iniciar sesión ⭐
+      </h4>
+      <div class="glass-effect" style="height: auto; padding: 50px 25px;">
+        <form id="login-form" class="form-login">
+          <div class="form-group">
+            <input type="text" id="username" name="username" placeholder=" " required />
+            <label for="username">Username:</label>
+            <span class="error-message" id="username-error"></span>
+          </div>
+          <div class="form-group">
+            <input type="password" id="password" name="password" placeholder=" " required />
+            <label for="password">Password:</label>
+            <span class="error-message" id="password-error"></span>
 
-      </h1>
-      <form id="login-form">
-        <div class="form-group">
-          <input type="text" id="username" name="username" placeholder=" " required />
-          <label for="username">Username:</label>
-          <span class="error-message" id="username-error"></span>
-        </div>
-        <div class="form-group">
-          <input type="password" id="password" name="password" placeholder=" " required />
-          <label for="password">Password:</label>
-          <span class="error-message" id="password-error"></span>
-
-        </div>
-        <button type="submit">Login</button>
-      </form>
-      <p class="error-message" id="error-message"></p>
-      <p class="form-link">
-        Don't have an account? <a href="#/register">Register here</a>
-      </p>
-    </div>
+          </div>
+          <button type="submit" class="btn-login">Login</button>
+        </form>
+        <p class="error-message" id="error-message"></p>
+        <p class="form-link">
+          Don't have an account? <a href="#/register">Register here</a>
+        </p>
+      </div>
+    <main>
   `;
 }
 
@@ -38,6 +39,8 @@ loginPage.init = function handelSubmit() {
   const password = document.getElementById("password");
   const inputs = document.querySelectorAll(".form-group input");
   const form = document.getElementById("login-form");
+
+  document.querySelectorAll('main').forEach((main) => main.textContent.length === 3 ? main.remove(): null);
 
   FormUtils.validateInput(username, (value) => {
     username.classList.remove("error");
@@ -90,7 +93,7 @@ loginPage.init = function handelSubmit() {
         // Optionally, you can clear the form
         form.reset();
         
-      },6000);
+      },1000);
     } catch (error) {
   
       errorMessage.innerHTML = error.message;

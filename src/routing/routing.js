@@ -28,7 +28,7 @@ class Routing {
   async navigate({ path }) {
     const cleanedPath = path.replace(/\/$/, "") || "/";
     const route = this.routes[cleanedPath];
-        this.currentRoute = cleanedPath; // Update the current route
+    this.currentRoute = cleanedPath; // Update the current route
 
 
     if (!route) {
@@ -44,8 +44,6 @@ class Routing {
     }
 
     if (route?.redirectTo) {
-      console.log(`Redirecting to: ${route.redirectTo}`);
-
       this.navigate({ path: route.redirectTo });
       return;
     }
@@ -58,12 +56,14 @@ class Routing {
         this.renderContent(content);
 
         location.hash = cleanedPath; // Update the URL hash
-
       }
     } catch (error) {
       console.error(error.message);
+      console.log(error.stack);
+      
     }
-    }, 0);
+  }, 0)
+ 
   }
 
   init() {
@@ -73,29 +73,38 @@ class Routing {
     });
 
     window.addEventListener("hashchange", () => {
-      const path = location.hash.slice(1);
+      const path = location.hash.slice(1) || "/";
       this.navigate({ path });
     });
   }
 
   renderContent(content) {
     const app = document.getElementById("app");
+
     if (!app) {
       throw new Error("App element not found");
     }
 
+    app.classList.add('app-container'); // Add a class for styling
+    app.innerHTML = ""; // Clear the current content
+
     // console.log( this.routes[this.currentRoute].component.init());
     
     app.innerHTML = content; // Limpiar el contenido actual
-
     if (typeof this.routes[this.currentRoute]?.component.init === "function") {
       
-      this.routes[this.currentRoute].component?.init(); // Llamar al componente si existe
+      setTimeout(() => this.routes[this.currentRoute].component?.init(), 0) // Llamar al componente si existe
     }
   }
 
   attachiLinkHandlers() {
-    document.querySelectorAll('a[href^="#/"]').forEach((link) => {
+    const links = document.querySelectorAll("a[href^='#']") || [];
+    if (links.length === 0) {
+      console.warn("No links found with href starting with '#'");
+      return;
+    }
+    links.forEach((link) => {
+
       link.addEventListener("click", (event) => {
         event.preventDefault();
         const path = link.getAttribute("href").slice(1); // Remove the leading '#'

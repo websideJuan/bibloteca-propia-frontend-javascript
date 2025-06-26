@@ -22,11 +22,16 @@ export class FormUtils {
         
         msg.textContent = `this ${msg.id.replace("-error", "")} is required`;
       });
-      if (!this.stateOfValidation.isValid) {
-        return;
+
+      const userActivated = JSON.parse(localStorage.getItem("userActivated"));
+
+      if (!this.stateOfValidation.isValid || !userActivated) {
+        this.stateBtn = false; // Reset state if validation fails
+      } else {
+        this.stateBtn = true; // Set state to true if validation passes
       }
       
-      this.stateBtn = true; 
+ 
       try {
         if (this.stateBtn) {
           form.querySelector("button[type='submit']").disabled = true; // Disable button to prevent multiple submissions
